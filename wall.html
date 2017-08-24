@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>微信大屏幕</title>
+
+		<!-- Bootstrap -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+		<link href="css/buttons.css" rel="stylesheet">
+		<link href="css/wall.css" rel="stylesheet">
+
+		<!--定制化风格-->
+		<link href="css/wall_newstyle.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body style="background-image:url(images/pingan_bg.jpg);">
+		<div class="header" id="header">
+			<div class="container wall-top">
+				<div class="row">
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-8 ">
+						<h2></h2>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 wxqrcode-box">
+						<!-- <div class="wxqrcode" id="qrcode">
+							<img src="images/qrcode.jpg" alt="..." class="button button-3d button-box button-jumbo">
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bigwall" id="bigwall">
+			<div class="container wallpage">
+				<div class="swiper-container swiper-wallpage">
+					<!-- <div class="qrcode-wall" id="qrcodewall" style="display:none;">
+						<div class="closeqrcode" id="closeqrcode"></div>
+						<div class="qrcode" id="qrcode">
+							<div class="page-header" id="qrcodetitle">
+							  <h3>关注微信号：<span class="label label-success">{$wecha['wxname']}</span></h3>
+							  <h3>发送<span style="color:#cc0033;font-size:60px;">[{$wecha['wxname']}]</span>，即可微信上墙！</h3>
+							</div>
+							<div class="qrcode-box" id="qrcodebox">
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 the-qrcode">
+										<div class="img" style="background-image:url({$wall['qrcode']});"></div>
+									</div>
+									<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 the-qrcode">
+										<div class="img" style="background-image:url({$wall['qrcode']});"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> -->
+					<!-- <div class="swiper-wrapper ani-opacity" id="wallpage"></div> -->
+
+					<!--签到墙-->
+					<!-- <div class="signinpage" id="signinpage">
+						<div class="signman">
+							<div class="signman-title">
+								<h4>签到墙</h4>
+							</div>
+							<div class="sign-wall-pape">
+								<ul id="sign_wall">
+									<li>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- 现场投票 -->
+					<!-- <div class="votepage" id="votepage">
+						<div class="vote">
+							<div class="votetitle">
+								<h4>{$vote['title']}<span class="label label-danger">共0人参与</span></h4>
+							</div>
+							<div class="votebox">
+								<canvas id="voteChart"></canvas>
+							</div>
+						</div>
+					</div> -->
+
+
+					<!-- 现场抽奖 -->
+					<div class="drawpage" id="drawpage">
+
+						<!-- 抽奖界面 -->
+						<div class="draw" id="draw">
+							<div class="row">
+								<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 drawwall" id="drawwall">
+									<div class="drawtitle" id="drawtitle">
+										<h4>现场抽奖
+										<button class="btn button-3d seeresult" id="seeresult" style="display:none;">查看抽奖结果</button></h4>
+									</div>
+									<div class="drawbox" id="drawbox">
+										<!-- 未抽奖 -->
+										<div class="drawman drawman-all">
+											<div class="thumbnail">												
+												<img src="images/emo.png">
+												<h3 data-name="">求中奖</h3>
+											</div>
+										</div>
+
+
+										<!-- 特等奖一名 -->
+										<div class="drawman drawman-te" style="display:none;">
+											<div class="thumbnail">												
+												<div class="caption">
+													<h2 data-name="">待抽奖</h2>
+													<p data-name=""></p>
+												</div>
+											</div>
+										</div>
+
+										<!-- 一等奖五名 -->
+										<div class="drawman drawman-one" style="display:none;"></div>
+
+										<!-- 二等奖五十名 -->
+										<div class="drawman drawman-two-one" style="display:none;"></div>
+										<div class="drawman drawman-two-two" style="display:none;"></div>
+										<div class="drawman drawman-two-three" style="display:none;"></div>
+										<div class="drawman drawman-two-four" style="display:none;"></div>
+										<div class="drawman drawman-two-five" style="display:none;"></div>
+
+										<!-- 三等奖70名 -->
+										<div class="drawman drawman-three-one" style="display:none;"></div>
+										<div class="drawman drawman-three-two" style="display:none;"></div>
+
+										<!-- 补抽环节 -->
+										<div class="drawman drawman-buchou" style="display:none;">
+											<div class="thumbnail">												
+												<div class="caption">
+													<h2 data-name="">待抽奖</h2>
+													<p data-name=""></p>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 drawsidebar" id="drawsidebar">
+									<div class="drawsort">
+										<select class="form-control">
+											<option value="all">抽奖项目</option>
+											<option value="te">特等奖</option>
+											<option>-</option>
+											<option value="1">一等奖</option>
+											<option>-</option>
+											<option value="21">二等奖(1-10)</option>
+											<option value="22">二等奖(11-20)</option>
+											<option value="23">二等奖(21-30)</option>
+											<option value="24">二等奖(31-40)</option>
+											<option value="25">二等奖(41-50)</option>
+											<option>-</option>
+											<option value="31">三等奖(1-35)</option>
+											<option value="32">三等奖(36-70)</option>
+											<option>-</option>
+											<option value="buchou">补抽奖项</option>
+										</select>
+									</div>
+
+									<div class="prize" id="prize">
+										<foreach name="prize" item="vc" key="kc">
+											<div class="thumbnail prize_count" id="prize_count_{$kc}" style="display:none;">
+												<div class="prize-pic" id="prize_pic" style="background-image:url();"></div>
+												<!-- <img id="prize_pic" src="{$vc.pic}" alt="..."> -->
+												<div class="caption">
+													<h3>本轮奖品数为<span id="count_{$kc}">{$vc.count}</span>份</h3>
+												</div>
+											</div>
+										</foreach>
+									</div>
+									<div class="drawnow">
+										<if condition="!empty($_SESSION['user_id'])">
+											<button class="btn btn-warning" id="drawnow">开始抽奖</button>
+											<button class="btn btn-danger" id="drawstop">停止</button>
+										</if>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--抽奖结果 -->
+						<div class="drawresult" id="drawresult">
+							<div class="drawtitle" id="drawtitle">
+								<h4>现场抽奖结果
+									<button class="btn button-3d drawresultstart" id="drawresultstart" style="display:none;"><i class="iconfont">&#xe605;</i> 开始切换</button>
+									<button class="btn button-3d drawresultstop" id="drawresultstop"><i class="iconfont">&#xe606;</i> 暂停切换</button>
+									<button class="btn button-3d backdraw" id="backdraw">返回抽奖界面</button>
+								</h4>
+							</div>
+
+							<div class="drawresult-page" id="drawresultpage">
+								<div class="swiper-drawresult swiper-container">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>特等奖</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-te">
+															<div class="thumbnail">												
+																<div class="caption">
+																	<h2 data-name="">待抽奖</h2>
+																	<p data-name=""></p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>一等奖</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-one">
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>二等奖（1-10名）</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-two-one">
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>二等奖（11-20名）</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-two-two">
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>二等奖（21-30名）</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-two-three">
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>二等奖（31-40名）</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-two-four">
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>二等奖（41-50名）</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-two-five">
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>三等奖（1-35名）</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-three-one">
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>三等奖（36-70名）</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-three-two">
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="drawresult-box">
+												<h3>补抽奖项（1名）</h3>
+												<div class="drawresult-table">
+													<div class="drawresult-td">
+														<div class="drawresult-man drawresult-buchou">
+															<div class="thumbnail">												
+																<div class="caption">
+																	<h2 data-name="">待抽奖</h2>
+																	<p data-name=""></p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- 如果需要导航按钮 -->
+									<div class="swiper-button-prev"></div>
+									<div class="swiper-button-next"></div>
+								</div>
+							</div>
+						</div><!--抽奖结果 -->
+
+					</div><!-- 现场抽奖 -->
+				</div>
+			</div>
+		</div>
+		<!-- <div class="underbar" id="underbar">
+			<div class="notification-area" id="notification">
+				<div class="container">
+					<div class="swiper-under swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+							</div>
+							<div class="swiper-slide">
+							</div>
+							<div class="swiper-slide">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="functional-area" id="functional">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 bottom-functional">
+							<div class="functional-icon" id="godraw">
+								<button class="button button-large button-plain button-border button-circle">
+									<i class="iconfont" onclick="prize_wall()">&#xe601;</i>
+								</button>
+							</div>
+						</div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 bottom-area">
+							<div class="co-logo"><img src="images/qifanhui-old.png"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+
+		<!-- 隐藏的奖池 -->
+		<div class="clone" style="display:none;">
+			
+		</div>
+
+		<script src="js/jquery.min1.11.3.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="js/swiper.3.1.2.min.js"></script>
+		<script src="js/join.js"></script>
+		<script src="js/wall.js"></script>
+	</body>
+</html>
+

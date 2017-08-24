@@ -1,0 +1,75 @@
+body {
+    font-family: "Segoe UI Light","Microsoft Yahei",Arial!important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.wall-top .row h2{
+	letter-spacing: 6px;
+}
+.wall-top .row h2 small{
+	padding-left: 4px;
+	color: #fff;
+}
+
+.signinpage{
+	/*background-color: rgba(0,0,0,0.2);*/
+}
+.signman-title h4{
+	border-bottom: none;
+	color: #fff;
+	text-shadow:0px 1px 3px #000;
+}
+@media screen and (min-width: 1200px){
+	.container {
+	    width: 80%;
+	}
+}
+
+.swiper-wallpage .swiper-slide{
+	/*border-bottom: 1px dotted rgba(255,255,255,0.35);*/
+}
+
+.msg .media{
+	box-shadow: none;
+	background-color: rgba(0,0,0,0.75);
+}
+.msg .media .media-left img{
+	/*width: 120px;
+	height: 120px!important;
+	border-radius: 0px; */
+}
+.msg .media .media-body h1{
+	font-size: 24px;
+	color:#ccc;
+	border-bottom: 1px dotted rgba(255,255,255,0.35);
+	font-weight: 100;
+	letter-spacing: 4px;
+
+}
+.msg .media .media-body p{
+	color: #fff;
+	font-weight: 100;
+	font-size: 32px;
+}
+.sendtime{
+	display: none;
+}
+
+.qrcode-box {
+	display: block;
+}
+
+.qrcode-box .row {
+    margin: 0px;
+    height: 100%;
+}
+.qrcode-box .row .the-qrcode{
+	height: 100%;
+}
+.qrcode-box .row .the-qrcode .img{
+	width: 100%;
+	height: 100%;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
